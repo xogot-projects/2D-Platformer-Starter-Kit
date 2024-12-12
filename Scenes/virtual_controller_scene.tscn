@@ -56,7 +56,7 @@ func _get(property):
 	elif property == \"thumb_l_visibility\":
 		return $HBoxContainerThumbsticks/LeftControl/LeftThumbstick.visibility_mode
 	elif property == \"thumb_l_enabled\":
-		return $HBoxContainerThumbsticks/LeftControl/LeftThumbstick.get_parent().visible
+		return $HBoxContainerThumbsticks/LeftControl/LeftThumbstick.visible
 	elif property == \"thumb_r_left\":
 		return $HBoxContainerThumbsticks/RightControl/RightThumbstick.action_left
 	elif property == \"thumb_r_right\":
@@ -68,7 +68,7 @@ func _get(property):
 	elif property == \"thumb_r_visibility\":
 		return $HBoxContainerThumbsticks/RightControl/RightThumbstick.visibility_mode
 	elif property == \"thumb_r_enabled\":
-		return $HBoxContainerThumbsticks/RightControl/RightThumbstick.get_parent().visible
+		return $HBoxContainerThumbsticks/RightControl/RightThumbstick.visible
 	elif property == \"action_a\":
 		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.action
 	elif property == \"visible_a\":
@@ -119,7 +119,7 @@ func _set(property, value):
 		$HBoxContainerThumbsticks/LeftControl/LeftThumbstick.visibility_mode = value
 		return true
 	elif property == \"thumb_l_enabled\":
-		$HBoxContainerThumbsticks/LeftControl/LeftThumbstick.get_parent().visible = value
+		$HBoxContainerThumbsticks/LeftControl/LeftThumbstick.visible = value
 		return true
 	elif property == \"thumb_r_left\":
 		$HBoxContainerThumbsticks/RightControl/RightThumbstick.action_left = value
@@ -137,7 +137,7 @@ func _set(property, value):
 		$HBoxContainerThumbsticks/RightControl/RightThumbstick.visibility_mode = value
 		return true
 	elif property == \"thumb_r_enabled\":
-		$HBoxContainerThumbsticks/RightControl/RightThumbstick.get_parent().visible = value
+		$HBoxContainerThumbsticks/RightControl/RightThumbstick.visible = value
 		return true
 	elif property == \"action_a\":
 		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.action = value
@@ -242,7 +242,8 @@ func _ready():
 	l_thumb.action_up = thumb_l_up
 	l_thumb.action_down = thumb_l_down
 
-	l_thumb.get_parent().visible = thumb_l_enabled
+	if not thumb_l_enabled:
+		l_thumb.visible = false
 	l_thumb.visibility_mode = thumb_l_visibility
 
 	r_thumb.action_left = thumb_r_left
@@ -250,7 +251,8 @@ func _ready():
 	r_thumb.action_up = thumb_r_up
 	r_thumb.action_down = thumb_r_down
 
-	r_thumb.get_parent().visible = thumb_r_enabled
+	if not thumb_r_enabled:
+		r_thumb.visible = false
 	r_thumb.visibility_mode = thumb_r_visibility
 		
 	# Calculate scale for buttons
