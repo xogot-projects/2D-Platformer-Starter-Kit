@@ -1,0 +1,439 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh4dt3sehbxn3"]
+
+[ext_resource type="Texture2D" uid="uid://cjfemq88dxd3s" path="res://addons/virtual_joystick/textures/button.png" id="2_3hojg"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="2_74klv"]
+
+[sub_resource type="GDScript" id="GDScript_gvovf"]
+resource_name = "virtual_controller"
+script/source = "extends CanvasLayer
+
+@export_group(\"Left Thumbstick\")
+@export var thumb_l_visibility : VirtualJoystick.Visibility_mode
+@export var thumb_l_enabled : bool
+@export var thumb_l_left : String
+@export var thumb_l_right : String
+@export var thumb_l_up : String
+@export var thumb_l_down : String
+
+@export_group(\"Right Thumbstick\")
+@export var thumb_r_visibility : VirtualJoystick.Visibility_mode
+@export var thumb_r_enabled : bool
+@export var thumb_r_left : String
+@export var thumb_r_right : String
+@export var thumb_r_up : String
+@export var thumb_r_down : String
+
+@export_group(\"A Button\")
+@export var action_a : String
+@export var visible_a : bool
+@export var texture_normal_a : Texture
+@export var texture_pressed_a : Texture
+@export_group(\"B Button\")
+@export var action_b : String
+@export var visible_b : bool
+@export var texture_normal_b : Texture
+@export var texture_pressed_b : Texture
+@export_group(\"X Button\")
+@export var action_x : String
+@export var visible_x : bool
+@export var texture_normal_x : Texture
+@export var texture_pressed_x : Texture
+@export_group(\"Y Button\")
+@export var action_y : String
+@export var visible_y : bool
+@export var texture_normal_y : Texture
+@export var texture_pressed_y : Texture
+
+func _get(property):
+	if property == \"thumb_l_left\":
+		return $HBoxContainerThumbsticks/LeftControl/LeftThumbstick.action_left
+	elif property == \"thumb_l_right\":
+		return $HBoxContainerThumbsticks/LeftControl/LeftThumbstick.action_right
+	elif property == \"thumb_l_up\":
+		return $HBoxContainerThumbsticks/LeftControl/LeftThumbstick.action_up
+	elif property == \"thumb_l_down\":
+		return $HBoxContainerThumbsticks/LeftControl/LeftThumbstick.action_down
+	elif property == \"thumb_l_visibility\":
+		return $HBoxContainerThumbsticks/LeftControl/LeftThumbstick.visibility_mode
+	elif property == \"thumb_l_enabled\":
+		return $HBoxContainerThumbsticks/LeftControl/LeftThumbstick.get_parent().visible
+	elif property == \"thumb_r_left\":
+		return $HBoxContainerThumbsticks/RightControl/RightThumbstick.action_left
+	elif property == \"thumb_r_right\":
+		return $HBoxContainerThumbsticks/RightControl/RightThumbstick.action_right
+	elif property == \"thumb_r_up\":
+		return $HBoxContainerThumbsticks/RightControl/RightThumbstick.action_up
+	elif property == \"thumb_r_down\":
+		return $HBoxContainerThumbsticks/RightControl/RightThumbstick.action_down
+	elif property == \"thumb_r_visibility\":
+		return $HBoxContainerThumbsticks/RightControl/RightThumbstick.visibility_mode
+	elif property == \"thumb_r_enabled\":
+		return $HBoxContainerThumbsticks/RightControl/RightThumbstick.get_parent().visible
+	elif property == \"action_a\":
+		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.action
+	elif property == \"visible_a\":
+		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.visible
+	elif property == \"texture_normal_a\":
+		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.texture_normal
+	elif property == \"texture_pressed_a\":
+		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.texture_pressed
+	elif property == \"action_b\":
+		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB.action
+	elif property == \"visible_b\":
+		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB.visible
+	elif property == \"texture_normal_b\":
+		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB.texture_normal
+	elif property == \"texture_pressed_b\":
+		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB.texture_pressed
+	elif property == \"action_x\":
+		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX.action
+	elif property == \"visible_x\":
+		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX.visible
+	elif property == \"texture_normal_x\":
+		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX.texture_normal
+	elif property == \"texture_pressed_x\":
+		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX.texture_pressed
+	elif property == \"action_y\":
+		return $HBoxContainerButtons/VBoxContainer/MidControl/ControlY.action
+	elif property == \"visible_y\":
+		return $HBoxContainerButtons/VBoxContainer/MidControl/ControlY.visible
+	elif property == \"texture_normal_y\":
+		return $HBoxContainerButtons/VBoxContainer/MidControl/ControlY.texture_normal
+	elif property == \"texture_pressed_y\":
+		return $HBoxContainerButtons/VBoxContainer/MidControl/ControlY.texture_pressed
+
+func _set(property, value):
+	if property == \"thumb_l_left\":
+		$HBoxContainerThumbsticks/LeftControl/LeftThumbstick.action_left = value
+		return true
+	elif property == \"thumb_l_right\":
+		$HBoxContainerThumbsticks/LeftControl/LeftThumbstick.action_right = value
+		return true
+	elif property == \"thumb_l_up\":
+		$HBoxContainerThumbsticks/LeftControl/LeftThumbstick.action_up = value
+		return true
+	elif property == \"thumb_l_down\":
+		$HBoxContainerThumbsticks/LeftControl/LeftThumbstick.action_down = value
+		return true
+	elif property == \"thumb_l_visibility\":
+		$HBoxContainerThumbsticks/LeftControl/LeftThumbstick.visibility_mode = value
+		return true
+	elif property == \"thumb_l_enabled\":
+		$HBoxContainerThumbsticks/LeftControl/LeftThumbstick.get_parent().visible = value
+		return true
+	elif property == \"thumb_r_left\":
+		$HBoxContainerThumbsticks/RightControl/RightThumbstick.action_left = value
+		return true
+	elif property == \"thumb_r_right\":
+		$HBoxContainerThumbsticks/RightControl/RightThumbstick.action_right = value
+		return true
+	elif property == \"thumb_r_up\":
+		$HBoxContainerThumbsticks/RightControl/RightThumbstick.action_up = value
+		return true
+	elif property == \"thumb_r_down\":
+		$HBoxContainerThumbsticks/RightControl/RightThumbstick.action_down = value
+		return true
+	elif property == \"thumb_r_visibility\":
+		$HBoxContainerThumbsticks/RightControl/RightThumbstick.visibility_mode = value
+		return true
+	elif property == \"thumb_r_enabled\":
+		$HBoxContainerThumbsticks/RightControl/RightThumbstick.get_parent().visible = value
+		return true
+	elif property == \"action_a\":
+		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.action = value
+		return true
+	elif property == \"visible_a\":
+		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.visible = value
+		return true
+	elif property == \"texture_normal_a\":
+		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.texture_normal = value
+		return true
+	elif property == \"texture_pressed_a\":
+		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.texture_pressed = value
+		return true
+	elif property == \"action_b\":
+		$HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB.action = value
+		return true
+	elif property == \"visible_b\":
+		$HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB.visible = value
+		return true
+	elif property == \"texture_normal_b\":
+		$HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB.texture_normal = value
+		return true
+	elif property == \"texture_pressed_b\":
+		$HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB.texture_pressed = value
+		return true
+	elif property == \"action_x\":
+		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX.action = value
+		return true
+	elif property == \"visible_x\":
+		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX.visible = value
+		return true
+	elif property == \"texture_normal_x\":
+		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX.texture_normal = value
+		return true
+	elif property == \"texture_pressed_x\":
+		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX.texture_pressed = value
+		return true
+	elif property == \"action_y\":
+		$HBoxContainerButtons/VBoxContainer/MidControl/ControlY.action = value
+		return true
+	elif property == \"visible_y\":
+		$HBoxContainerButtons/VBoxContainer/MidControl/ControlY.visible = value
+		return true
+	elif property == \"texture_normal_y\":
+		$HBoxContainerButtons/VBoxContainer/MidControl/ControlY.texture_normal = value
+		return true
+	elif property == \"texture_pressed_y\":
+		$HBoxContainerButtons/VBoxContainer/MidControl/ControlY.texture_pressed = value
+		return true
+	return false
+
+func _get_property_list():
+	return [
+		{ \"name\": \"thumb_l_left\", \"type\": TYPE_STRING },
+		{ \"name\": \"thumb_l_right\", \"type\": TYPE_STRING },
+		{ \"name\": \"thumb_l_up\", \"type\": TYPE_STRING },
+		{ \"name\": \"thumb_l_down\", \"type\": TYPE_STRING },
+		{ \"name\": \"thumb_l_visibility\", \"type\": TYPE_INT, \"hint\": \"enum\", \"hint_string\": \"When Touched,Always,Hidden\" },
+		{ \"name\": \"thumb_l_enabled\", \"type\": TYPE_BOOL },
+		{ \"name\": \"thumb_r_left\", \"type\": TYPE_STRING },
+		{ \"name\": \"thumb_r_right\", \"type\": TYPE_STRING },
+		{ \"name\": \"thumb_r_up\", \"type\": TYPE_STRING },
+		{ \"name\": \"thumb_r_down\", \"type\": TYPE_STRING },
+		{ \"name\": \"thumb_r_visibility\", \"type\": TYPE_INT, \"hint\": \"enum\", \"hint_string\": \"When Touched,Always,Hidden\" },
+		{ \"name\": \"thumb_r_enabled\", \"type\": TYPE_BOOL },
+		{ \"name\": \"action_a\", \"type\": TYPE_STRING },
+		{ \"name\": \"visible_a\", \"type\": TYPE_BOOL },
+		{ \"name\": \"texture_normal_a\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" },
+		{ \"name\": \"texture_pressed_a\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" },
+		{ \"name\": \"action_b\", \"type\": TYPE_STRING },
+		{ \"name\": \"visible_b\", \"type\": TYPE_BOOL },
+		{ \"name\": \"texture_normal_b\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" },
+		{ \"name\": \"texture_pressed_b\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" },
+		{ \"name\": \"action_x\", \"type\": TYPE_STRING },
+		{ \"name\": \"visible_x\", \"type\": TYPE_BOOL },
+		{ \"name\": \"texture_normal_x\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" },
+		{ \"name\": \"texture_pressed_x\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" },
+		{ \"name\": \"action_y\", \"type\": TYPE_STRING },
+		{ \"name\": \"visible_y\", \"type\": TYPE_BOOL },
+		{ \"name\": \"texture_normal_y\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" },
+		{ \"name\": \"texture_pressed_y\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" }
+	]
+	
+
+
+var max_size = .15 # The maximum percentage of the screen height a button should cover
+
+# resize buttons when godot first loads the scene
+func _ready():
+	var size = DisplayServer.window_get_size()
+	
+	var l_thumb = $HBoxContainerThumbsticks/LeftControl/LeftThumbstick
+	var r_thumb = $HBoxContainerThumbsticks/RightControl/RightThumbstick
+	
+	var a : TouchScreenButton = $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA
+	var b : TouchScreenButton = $HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB
+	var x : TouchScreenButton = $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX
+	var y : TouchScreenButton = $HBoxContainerButtons/VBoxContainer/MidControl/ControlY/ButtonY
+	
+	l_thumb.action_left = thumb_l_left
+	l_thumb.action_right = thumb_l_right
+	l_thumb.action_up = thumb_l_up
+	l_thumb.action_down = thumb_l_down
+
+	l_thumb.get_parent().visible = thumb_l_enabled
+	l_thumb.visibility_mode = thumb_l_visibility
+
+	r_thumb.action_left = thumb_r_left
+	r_thumb.action_right = thumb_r_right
+	r_thumb.action_up = thumb_r_up
+	r_thumb.action_down = thumb_r_down
+
+	r_thumb.get_parent().visible = thumb_r_enabled
+	r_thumb.visibility_mode = thumb_r_visibility
+		
+	# Calculate scale for buttons
+	var buttonHeight = a.get_texture_normal().get_size().y
+	var ratio = (size.y / buttonHeight) * max_size
+	var scale = Vector2(ratio,ratio)
+	
+	a.scale = scale
+	a.action = action_a
+	a.visible = visible_a 
+	a.texture_normal = texture_normal_a
+	a.texture_pressed = texture_pressed_a
+	
+	b.scale = scale
+	b.action = action_b
+	b.visible = visible_b
+	b.texture_normal = texture_normal_b
+	b.texture_pressed = texture_pressed_b
+	
+	x.scale = scale
+	x.action = action_x
+	x.visible = visible_x  
+	x.texture_normal = texture_normal_x
+	x.texture_pressed = texture_pressed_x
+	
+	y.scale = scale
+	y.action = action_y
+	y.visible = visible_y
+	y.texture_normal = texture_normal_y
+	y.texture_pressed = texture_pressed_y
+"
+
+[node name="VirtualControl" type="CanvasLayer"]
+script = SubResource("GDScript_gvovf")
+thumb_l_visibility = 2
+thumb_l_enabled = true
+thumb_l_left = "Left"
+thumb_l_right = "Right"
+action_a = "Jump"
+visible_a = true
+texture_normal_a = ExtResource("2_3hojg")
+
+[node name="HBoxContainerThumbsticks" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="LeftControl" type="Control" parent="HBoxContainerThumbsticks"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeftThumbstick" parent="HBoxContainerThumbsticks/LeftControl" instance=ExtResource("2_74klv")]
+layout_mode = 1
+anchors_preset = 15
+anchor_top = 0.0
+anchor_right = 1.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+joystick_mode = 2
+visibility_mode = 2
+action_left = ""
+action_right = ""
+action_up = ""
+action_down = ""
+
+[node name="RightControl" type="Control" parent="HBoxContainerThumbsticks"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightThumbstick" parent="HBoxContainerThumbsticks/RightControl" instance=ExtResource("2_74klv")]
+layout_mode = 1
+anchors_preset = 15
+anchor_top = 0.0
+anchor_right = 1.0
+offset_left = 4.0
+offset_top = 0.0
+offset_right = 4.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+joystick_mode = 2
+visibility_mode = 2
+action_left = "camera_left"
+action_right = "camera_right"
+action_up = "camera_up"
+action_down = "camera_down"
+
+[node name="HBoxContainerButtons" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="HBoxContainerButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainerButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TopControl" type="Control" parent="HBoxContainerButtons/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MidControl" type="Control" parent="HBoxContainerButtons/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ControlY" type="Control" parent="HBoxContainerButtons/VBoxContainer/MidControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonY" type="TouchScreenButton" parent="HBoxContainerButtons/VBoxContainer/MidControl/ControlY"]
+texture_normal = ExtResource("2_3hojg")
+action = "shoot"
+visibility_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainerButtons/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ControlX" type="Control" parent="HBoxContainerButtons/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="ButtonX" type="TouchScreenButton" parent="HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control"]
+texture_normal = ExtResource("2_3hojg")
+action = "jump"
+visibility_mode = 1
+
+[node name="Control" type="Control" parent="HBoxContainerButtons/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ControlB" type="Control" parent="HBoxContainerButtons/VBoxContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonB" type="TouchScreenButton" parent="HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB"]
+texture_normal = ExtResource("2_3hojg")
+action = "shoot"
+visibility_mode = 1
+
+[node name="ControlA" type="Control" parent="HBoxContainerButtons/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA"]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="ButtonA" type="TouchScreenButton" parent="HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control"]
+texture_normal = ExtResource("2_3hojg")
+action = "jump"
+visibility_mode = 1

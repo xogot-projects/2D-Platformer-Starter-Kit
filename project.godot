@@ -23,6 +23,7 @@ config/icon="res://Icon.png"
 GameManager="*res://Scripts/GameManager.gd"
 SceneTransition="*res://Scenes/Managers/SceneTransition.tscn"
 AudioManager="*res://Scenes/Managers/AudioManager.tscn"
+VirtualControllerScene="*res://Scenes/virtual_controller_scene.tscn"
 
 [display]
 
@@ -60,7 +61,9 @@ Jump={
 
 [input_devices]
 
-virtual_controller/ios/enable_controller=true
+pointing/emulate_touch_from_mouse=true
+pointing/emulate_mouse_from_touch=false
+virtual_controller/ios/enable_controller=false
 virtual_controller/ios/enable_right_thumbstick=false
 virtual_controller/ios/enable_button_b=false
 virtual_controller/ios/enable_button_x=false
