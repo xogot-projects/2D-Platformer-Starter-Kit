@@ -46,146 +46,146 @@ script/source = "extends CanvasLayer
 
 func _get(property):
 	if property == \"thumb_l_left\":
-		return $HBoxContainerThumbsticks/LeftControl/LeftThumbstick.action_left
+		return %LeftThumbstick.action_left
 	elif property == \"thumb_l_right\":
-		return $HBoxContainerThumbsticks/LeftControl/LeftThumbstick.action_right
+		return %LeftThumbstick.action_right
 	elif property == \"thumb_l_up\":
-		return $HBoxContainerThumbsticks/LeftControl/LeftThumbstick.action_up
+		return %LeftThumbstick.action_up
 	elif property == \"thumb_l_down\":
-		return $HBoxContainerThumbsticks/LeftControl/LeftThumbstick.action_down
+		return %LeftThumbstick.action_down
 	elif property == \"thumb_l_visibility\":
-		return $HBoxContainerThumbsticks/LeftControl/LeftThumbstick.visibility_mode
+		return %LeftThumbstick.visibility_mode
 	elif property == \"thumb_l_enabled\":
-		return $HBoxContainerThumbsticks/LeftControl/LeftThumbstick.visible
+		return %LeftThumbstick.visible
 	elif property == \"thumb_r_left\":
-		return $HBoxContainerThumbsticks/RightControl/RightThumbstick.action_left
+		return %RightThumbstick.action_left
 	elif property == \"thumb_r_right\":
-		return $HBoxContainerThumbsticks/RightControl/RightThumbstick.action_right
+		return %RightThumbstick.action_right
 	elif property == \"thumb_r_up\":
-		return $HBoxContainerThumbsticks/RightControl/RightThumbstick.action_up
+		return %RightThumbstick.action_up
 	elif property == \"thumb_r_down\":
-		return $HBoxContainerThumbsticks/RightControl/RightThumbstick.action_down
+		return %RightThumbstick.action_down
 	elif property == \"thumb_r_visibility\":
-		return $HBoxContainerThumbsticks/RightControl/RightThumbstick.visibility_mode
+		return %RightThumbstick.visibility_mode
 	elif property == \"thumb_r_enabled\":
-		return $HBoxContainerThumbsticks/RightControl/RightThumbstick.visible
+		return %RightThumbstick.visible
 	elif property == \"action_a\":
-		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.action
+		return %ButtonA.action
 	elif property == \"visible_a\":
-		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.visible
+		return %ButtonA.visible
 	elif property == \"texture_normal_a\":
-		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.texture_normal
+		return %ButtonA.texture_normal
 	elif property == \"texture_pressed_a\":
-		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.texture_pressed
+		return %ButtonA.texture_pressed
 	elif property == \"action_b\":
-		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB.action
+		return %ButtonB.action
 	elif property == \"visible_b\":
-		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB.visible
+		return %ButtonB.visible
 	elif property == \"texture_normal_b\":
-		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB.texture_normal
+		return %ButtonB.texture_normal
 	elif property == \"texture_pressed_b\":
-		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB.texture_pressed
+		return %ButtonB.texture_pressed
 	elif property == \"action_x\":
-		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX.action
+		return %ButtonX.action
 	elif property == \"visible_x\":
-		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX.visible
+		return %ButtonX.visible
 	elif property == \"texture_normal_x\":
-		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX.texture_normal
+		return %ButtonX.texture_normal
 	elif property == \"texture_pressed_x\":
-		return $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX.texture_pressed
+		return %ButtonX.texture_pressed
 	elif property == \"action_y\":
-		return $HBoxContainerButtons/VBoxContainer/MidControl/ControlY.action
+		return %ControlY.action
 	elif property == \"visible_y\":
-		return $HBoxContainerButtons/VBoxContainer/MidControl/ControlY.visible
+		return %ControlY.visible
 	elif property == \"texture_normal_y\":
-		return $HBoxContainerButtons/VBoxContainer/MidControl/ControlY.texture_normal
+		return %ControlY.texture_normal
 	elif property == \"texture_pressed_y\":
-		return $HBoxContainerButtons/VBoxContainer/MidControl/ControlY.texture_pressed
+		return %ControlY.texture_pressed
 
 func _set(property, value):
 	if property == \"thumb_l_left\":
-		$HBoxContainerThumbsticks/LeftControl/LeftThumbstick.action_left = value
+		%LeftThumbstick.action_left = value
 		return true
 	elif property == \"thumb_l_right\":
-		$HBoxContainerThumbsticks/LeftControl/LeftThumbstick.action_right = value
+		%LeftThumbstick.action_right = value
 		return true
 	elif property == \"thumb_l_up\":
-		$HBoxContainerThumbsticks/LeftControl/LeftThumbstick.action_up = value
+		%LeftThumbstick.action_up = value
 		return true
 	elif property == \"thumb_l_down\":
-		$HBoxContainerThumbsticks/LeftControl/LeftThumbstick.action_down = value
+		%LeftThumbstick.action_down = value
 		return true
 	elif property == \"thumb_l_visibility\":
-		$HBoxContainerThumbsticks/LeftControl/LeftThumbstick.visibility_mode = value
+		%LeftThumbstick.visibility_mode = value
 		return true
 	elif property == \"thumb_l_enabled\":
-		$HBoxContainerThumbsticks/LeftControl/LeftThumbstick.visible = value
+		%LeftThumbstick.visible = value
 		return true
 	elif property == \"thumb_r_left\":
-		$HBoxContainerThumbsticks/RightControl/RightThumbstick.action_left = value
+		%RightThumbstick.action_left = value
 		return true
 	elif property == \"thumb_r_right\":
-		$HBoxContainerThumbsticks/RightControl/RightThumbstick.action_right = value
+		%RightThumbstick.action_right = value
 		return true
 	elif property == \"thumb_r_up\":
-		$HBoxContainerThumbsticks/RightControl/RightThumbstick.action_up = value
+		%RightThumbstick.action_up = value
 		return true
 	elif property == \"thumb_r_down\":
-		$HBoxContainerThumbsticks/RightControl/RightThumbstick.action_down = value
+		%RightThumbstick.action_down = value
 		return true
 	elif property == \"thumb_r_visibility\":
-		$HBoxContainerThumbsticks/RightControl/RightThumbstick.visibility_mode = value
+		%RightThumbstick.visibility_mode = value
 		return true
 	elif property == \"thumb_r_enabled\":
-		$HBoxContainerThumbsticks/RightControl/RightThumbstick.visible = value
+		%RightThumbstick.visible = value
 		return true
 	elif property == \"action_a\":
-		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.action = value
+		%ButtonA.action = value
 		return true
 	elif property == \"visible_a\":
-		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.visible = value
+		%ButtonA.visible = value
 		return true
 	elif property == \"texture_normal_a\":
-		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.texture_normal = value
+		%ButtonA.texture_normal = value
 		return true
 	elif property == \"texture_pressed_a\":
-		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA.texture_pressed = value
+		%ButtonA.texture_pressed = value
 		return true
 	elif property == \"action_b\":
-		$HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB.action = value
+		%ButtonB.action = value
 		return true
 	elif property == \"visible_b\":
-		$HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB.visible = value
+		%ButtonB.visible = value
 		return true
 	elif property == \"texture_normal_b\":
-		$HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB.texture_normal = value
+		%ButtonB.texture_normal = value
 		return true
 	elif property == \"texture_pressed_b\":
-		$HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB.texture_pressed = value
+		%ButtonB.texture_pressed = value
 		return true
 	elif property == \"action_x\":
-		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX.action = value
+		%ButtonX.action = value
 		return true
 	elif property == \"visible_x\":
-		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX.visible = value
+		%ButtonX.visible = value
 		return true
 	elif property == \"texture_normal_x\":
-		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX.texture_normal = value
+		%ButtonX.texture_normal = value
 		return true
 	elif property == \"texture_pressed_x\":
-		$HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX.texture_pressed = value
+		%ButtonX.texture_pressed = value
 		return true
 	elif property == \"action_y\":
-		$HBoxContainerButtons/VBoxContainer/MidControl/ControlY.action = value
+		%ControlY.action = value
 		return true
 	elif property == \"visible_y\":
-		$HBoxContainerButtons/VBoxContainer/MidControl/ControlY.visible = value
+		%ControlY.visible = value
 		return true
 	elif property == \"texture_normal_y\":
-		$HBoxContainerButtons/VBoxContainer/MidControl/ControlY.texture_normal = value
+		%ControlY.texture_normal = value
 		return true
 	elif property == \"texture_pressed_y\":
-		$HBoxContainerButtons/VBoxContainer/MidControl/ControlY.texture_pressed = value
+		%ControlY.texture_pressed = value
 		return true
 	return false
 
@@ -229,13 +229,13 @@ var max_size = .15 # The maximum percentage of the screen height a button should
 func _ready():
 	var size = DisplayServer.window_get_size()
 	
-	var l_thumb = $HBoxContainerThumbsticks/LeftControl/LeftThumbstick
-	var r_thumb = $HBoxContainerThumbsticks/RightControl/RightThumbstick
+	var l_thumb = %\"LeftThumbstick\"
+	var r_thumb = %RightThumbstick
 	
-	var a : TouchScreenButton = $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control/ButtonA
-	var b : TouchScreenButton = $HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB/ButtonB
-	var x : TouchScreenButton = $HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control/ButtonX
-	var y : TouchScreenButton = $HBoxContainerButtons/VBoxContainer/MidControl/ControlY/ButtonY
+	var a : TouchScreenButton = %ButtonA
+	var b : TouchScreenButton = %ButtonB
+	var x : TouchScreenButton = %ButtonX
+	var y : TouchScreenButton = %ButtonY
 	
 	l_thumb.action_left = thumb_l_left
 	l_thumb.action_right = thumb_l_right
@@ -308,6 +308,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="LeftThumbstick" parent="HBoxContainerThumbsticks/LeftControl" instance=ExtResource("2_74klv")]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_top = 0.0
@@ -330,6 +331,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="RightThumbstick" parent="HBoxContainerThumbsticks/RightControl" instance=ExtResource("2_74klv")]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_top = 0.0
@@ -384,6 +386,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ButtonY" type="TouchScreenButton" parent="HBoxContainerButtons/VBoxContainer/MidControl/ControlY"]
+unique_name_in_owner = true
 texture_normal = ExtResource("2_3hojg")
 action = "shoot"
 visibility_mode = 1
@@ -404,6 +407,7 @@ anchor_right = 1.0
 grow_horizontal = 0
 
 [node name="ButtonX" type="TouchScreenButton" parent="HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlX/Control"]
+unique_name_in_owner = true
 texture_normal = ExtResource("2_3hojg")
 action = "jump"
 visibility_mode = 1
@@ -423,6 +427,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ButtonB" type="TouchScreenButton" parent="HBoxContainerButtons/VBoxContainer/HBoxContainer/Control/ControlB"]
+unique_name_in_owner = true
 texture_normal = ExtResource("2_3hojg")
 action = "shoot"
 visibility_mode = 1
@@ -436,6 +441,7 @@ layout_mode = 1
 anchors_preset = 0
 
 [node name="ButtonA" type="TouchScreenButton" parent="HBoxContainerButtons/VBoxContainer/HBoxContainer/ControlA/Control"]
+unique_name_in_owner = true
 texture_normal = ExtResource("2_3hojg")
 action = "jump"
 visibility_mode = 1
