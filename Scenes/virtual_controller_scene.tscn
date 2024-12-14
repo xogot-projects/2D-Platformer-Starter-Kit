@@ -8,20 +8,20 @@ resource_name = "virtual_controller"
 script/source = "extends CanvasLayer
 
 @export_group(\"Left Thumbstick\")
-@export var thumb_l_visibility : VirtualJoystick.Visibility_mode
-@export var thumb_l_enabled : bool
-@export var thumb_l_left : String
-@export var thumb_l_right : String
-@export var thumb_l_up : String
-@export var thumb_l_down : String
+@export var visibility_left_thumb : VirtualJoystick.Visibility_mode
+@export var enabled_left_thumb : bool
+@export var left_left_thumb : String
+@export var right_left_thumb : String
+@export var up_left_thumb : String
+@export var down_left_thumb : String
 
 @export_group(\"Right Thumbstick\")
-@export var thumb_r_visibility : VirtualJoystick.Visibility_mode
-@export var thumb_r_enabled : bool
-@export var thumb_r_left : String
-@export var thumb_r_right : String
-@export var thumb_r_up : String
-@export var thumb_r_down : String
+@export var visibility_right_thumb : VirtualJoystick.Visibility_mode
+@export var enabled_right_thumb : bool
+@export var left_right_thumb : String
+@export var right_right_thumb : String
+@export var up_right_thumb : String
+@export var down_right_thumb : String
 
 @export_group(\"A Button\")
 @export var action_a : String
@@ -45,29 +45,29 @@ script/source = "extends CanvasLayer
 @export var texture_pressed_y : Texture
 
 func _get(property):
-	if property == \"thumb_l_left\":
+	if property == \"left_left_thumb\":
 		return %LeftThumbstick.action_left
-	elif property == \"thumb_l_right\":
+	elif property == \"right_left_thumb\":
 		return %LeftThumbstick.action_right
-	elif property == \"thumb_l_up\":
+	elif property == \"up_left_thumb\":
 		return %LeftThumbstick.action_up
-	elif property == \"thumb_l_down\":
+	elif property == \"down_left_thumb\":
 		return %LeftThumbstick.action_down
-	elif property == \"thumb_l_visibility\":
+	elif property == \"visibility_left_thumb\":
 		return %LeftThumbstick.visibility_mode
-	elif property == \"thumb_l_enabled\":
+	elif property == \"enabled_left_thumb\":
 		return %LeftThumbstick.visible
-	elif property == \"thumb_r_left\":
+	elif property == \"left_right_thumb\":
 		return %RightThumbstick.action_left
-	elif property == \"thumb_r_right\":
+	elif property == \"right_right_thumb\":
 		return %RightThumbstick.action_right
-	elif property == \"thumb_r_up\":
+	elif property == \"up_right_thumb\":
 		return %RightThumbstick.action_up
-	elif property == \"thumb_r_down\":
+	elif property == \"down_right_thumb\":
 		return %RightThumbstick.action_down
-	elif property == \"thumb_r_visibility\":
+	elif property == \"visibility_right_thumb\":
 		return %RightThumbstick.visibility_mode
-	elif property == \"thumb_r_enabled\":
+	elif property == \"enabled_right_thumb\":
 		return %RightThumbstick.visible
 	elif property == \"action_a\":
 		return %ButtonA.action
@@ -103,40 +103,40 @@ func _get(property):
 		return %ControlY.texture_pressed
 
 func _set(property, value):
-	if property == \"thumb_l_left\":
+	if property == \"left_left_thumb\":
 		%LeftThumbstick.action_left = value
 		return true
-	elif property == \"thumb_l_right\":
+	elif property == \"right_left_thumb\":
 		%LeftThumbstick.action_right = value
 		return true
-	elif property == \"thumb_l_up\":
+	elif property == \"up_left_thumb\":
 		%LeftThumbstick.action_up = value
 		return true
-	elif property == \"thumb_l_down\":
+	elif property == \"down_left_thumb\":
 		%LeftThumbstick.action_down = value
 		return true
-	elif property == \"thumb_l_visibility\":
+	elif property == \"visibility_left_thumb\":
 		%LeftThumbstick.visibility_mode = value
 		return true
-	elif property == \"thumb_l_enabled\":
+	elif property == \"enabled_left_thumb\":
 		%LeftThumbstick.visible = value
 		return true
-	elif property == \"thumb_r_left\":
+	elif property == \"left_right_thumb\":
 		%RightThumbstick.action_left = value
 		return true
-	elif property == \"thumb_r_right\":
+	elif property == \"right_right_thumb\":
 		%RightThumbstick.action_right = value
 		return true
-	elif property == \"thumb_r_up\":
+	elif property == \"up_right_thumb\":
 		%RightThumbstick.action_up = value
 		return true
-	elif property == \"thumb_r_down\":
+	elif property == \"down_right_thumb\":
 		%RightThumbstick.action_down = value
 		return true
-	elif property == \"thumb_r_visibility\":
+	elif property == \"visibility_right_thumb\":
 		%RightThumbstick.visibility_mode = value
 		return true
-	elif property == \"thumb_r_enabled\":
+	elif property == \"enabled_right_thumb\":
 		%RightThumbstick.visible = value
 		return true
 	elif property == \"action_a\":
@@ -191,18 +191,18 @@ func _set(property, value):
 
 func _get_property_list():
 	return [
-		{ \"name\": \"thumb_l_left\", \"type\": TYPE_STRING },
-		{ \"name\": \"thumb_l_right\", \"type\": TYPE_STRING },
-		{ \"name\": \"thumb_l_up\", \"type\": TYPE_STRING },
-		{ \"name\": \"thumb_l_down\", \"type\": TYPE_STRING },
-		{ \"name\": \"thumb_l_visibility\", \"type\": TYPE_INT, \"hint\": \"enum\", \"hint_string\": \"When Touched,Always,Hidden\" },
-		{ \"name\": \"thumb_l_enabled\", \"type\": TYPE_BOOL },
-		{ \"name\": \"thumb_r_left\", \"type\": TYPE_STRING },
-		{ \"name\": \"thumb_r_right\", \"type\": TYPE_STRING },
-		{ \"name\": \"thumb_r_up\", \"type\": TYPE_STRING },
-		{ \"name\": \"thumb_r_down\", \"type\": TYPE_STRING },
-		{ \"name\": \"thumb_r_visibility\", \"type\": TYPE_INT, \"hint\": \"enum\", \"hint_string\": \"When Touched,Always,Hidden\" },
-		{ \"name\": \"thumb_r_enabled\", \"type\": TYPE_BOOL },
+		{ \"name\": \"left_left_thumb\", \"type\": TYPE_STRING },
+		{ \"name\": \"right_left_thumb\", \"type\": TYPE_STRING },
+		{ \"name\": \"up_left_thumb\", \"type\": TYPE_STRING },
+		{ \"name\": \"down_left_thumb\", \"type\": TYPE_STRING },
+		{ \"name\": \"visibility_left_thumb\", \"type\": TYPE_INT, \"hint\": \"enum\", \"hint_string\": \"When Touched,Always,Hidden\" },
+		{ \"name\": \"enabled_left_thumb\", \"type\": TYPE_BOOL },
+		{ \"name\": \"left_right_thumb\", \"type\": TYPE_STRING },
+		{ \"name\": \"right_right_thumb\", \"type\": TYPE_STRING },
+		{ \"name\": \"up_right_thumb\", \"type\": TYPE_STRING },
+		{ \"name\": \"down_right_thumb\", \"type\": TYPE_STRING },
+		{ \"name\": \"visibility_right_thumb\", \"type\": TYPE_INT, \"hint\": \"enum\", \"hint_string\": \"When Touched,Always,Hidden\" },
+		{ \"name\": \"enabled_right_thumb\", \"type\": TYPE_BOOL },
 		{ \"name\": \"action_a\", \"type\": TYPE_STRING },
 		{ \"name\": \"visible_a\", \"type\": TYPE_BOOL },
 		{ \"name\": \"texture_normal_a\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" },
@@ -229,7 +229,7 @@ var max_size = .15 # The maximum percentage of the screen height a button should
 func _ready():
 	var size = DisplayServer.window_get_size()
 	
-	var l_thumb = %\"LeftThumbstick\"
+	var l_thumb = %LeftThumbstick
 	var r_thumb = %RightThumbstick
 	
 	var a : TouchScreenButton = %ButtonA
@@ -237,30 +237,35 @@ func _ready():
 	var x : TouchScreenButton = %ButtonX
 	var y : TouchScreenButton = %ButtonY
 	
-	l_thumb.action_left = thumb_l_left
-	l_thumb.action_right = thumb_l_right
-	l_thumb.action_up = thumb_l_up
-	l_thumb.action_down = thumb_l_down
+	l_thumb.action_left = left_left_thumb
+	l_thumb.action_right = right_left_thumb
+	l_thumb.action_up = up_left_thumb
+	l_thumb.action_down = down_left_thumb
 
-	if not thumb_l_enabled:
+	if not enabled_left_thumb:
 		l_thumb.visible = false
-	l_thumb.visibility_mode = thumb_l_visibility
+	l_thumb.visibility_mode = visibility_left_thumb
 
-	r_thumb.action_left = thumb_r_left
-	r_thumb.action_right = thumb_r_right
-	r_thumb.action_up = thumb_r_up
-	r_thumb.action_down = thumb_r_down
+	r_thumb.action_left = left_right_thumb
+	r_thumb.action_right = right_right_thumb
+	r_thumb.action_up = up_right_thumb
+	r_thumb.action_down = down_right_thumb
 
-	if not thumb_r_enabled:
+	if not enabled_right_thumb:
 		r_thumb.visible = false
-	r_thumb.visibility_mode = thumb_r_visibility
+	r_thumb.visibility_mode = visibility_right_thumb
 		
 	# Calculate scale for buttons
 	var buttonHeight = a.get_texture_normal().get_size().y
-	var ratio = (size.y / buttonHeight) * max_size
+	var ratio = (size.y * max_size) / buttonHeight
 	var scale = Vector2(ratio,ratio)
+	print(buttonHeight)
+	print(ratio)
+	print(size)
+	print(max_size)
+	print(scale)
 	
-	a.scale = scale
+	#a.scale = scale
 	a.action = action_a
 	a.visible = visible_a 
 	a.texture_normal = texture_normal_a
@@ -287,10 +292,10 @@ func _ready():
 
 [node name="VirtualControl" type="CanvasLayer"]
 script = SubResource("GDScript_gvovf")
-thumb_l_visibility = 2
-thumb_l_enabled = true
-thumb_l_left = "Left"
-thumb_l_right = "Right"
+visibility_left_thumb = 2
+enabled_left_thumb = true
+left_left_thumb = "Left"
+right_left_thumb = "Right"
 action_a = "Jump"
 visible_a = true
 texture_normal_a = ExtResource("2_3hojg")
