@@ -45,117 +45,29 @@ script/source = "extends CanvasLayer
 @export var texture_pressed_y : Texture
 
 func _get(property):
-	if property == \"left_left_thumb\":
-		return %LeftThumbstick.action_left
-	elif property == \"right_left_thumb\":
-		return %LeftThumbstick.action_right
-	elif property == \"up_left_thumb\":
-		return %LeftThumbstick.action_up
-	elif property == \"down_left_thumb\":
-		return %LeftThumbstick.action_down
-	elif property == \"visibility_left_thumb\":
-		return %LeftThumbstick.visibility_mode
-	elif property == \"enabled_left_thumb\":
-		return %LeftThumbstick.visible
-	elif property == \"left_right_thumb\":
-		return %RightThumbstick.action_left
-	elif property == \"right_right_thumb\":
-		return %RightThumbstick.action_right
-	elif property == \"up_right_thumb\":
-		return %RightThumbstick.action_up
-	elif property == \"down_right_thumb\":
-		return %RightThumbstick.action_down
-	elif property == \"visibility_right_thumb\":
-		return %RightThumbstick.visibility_mode
-	elif property == \"enabled_right_thumb\":
-		return %RightThumbstick.visible
-	elif property == \"action_a\":
-		return %ButtonA.action
-	elif property == \"visible_a\":
-		return %ButtonA.visible
-	elif property == \"texture_normal_a\":
+	if property == \"texture_normal_a\":
 		return %ButtonA.texture_normal
 	elif property == \"texture_pressed_a\":
 		return %ButtonA.texture_pressed
-	elif property == \"action_b\":
-		return %ButtonB.action
-	elif property == \"visible_b\":
-		return %ButtonB.visible
 	elif property == \"texture_normal_b\":
 		return %ButtonB.texture_normal
 	elif property == \"texture_pressed_b\":
 		return %ButtonB.texture_pressed
-	elif property == \"action_x\":
-		return %ButtonX.action
-	elif property == \"visible_x\":
-		return %ButtonX.visible
 	elif property == \"texture_normal_x\":
 		return %ButtonX.texture_normal
 	elif property == \"texture_pressed_x\":
 		return %ButtonX.texture_pressed
-	elif property == \"action_y\":
-		return %ControlY.action
-	elif property == \"visible_y\":
-		return %ControlY.visible
 	elif property == \"texture_normal_y\":
 		return %ControlY.texture_normal
 	elif property == \"texture_pressed_y\":
 		return %ControlY.texture_pressed
 
 func _set(property, value):
-	if property == \"left_left_thumb\":
-		%LeftThumbstick.action_left = value
-		return true
-	elif property == \"right_left_thumb\":
-		%LeftThumbstick.action_right = value
-		return true
-	elif property == \"up_left_thumb\":
-		%LeftThumbstick.action_up = value
-		return true
-	elif property == \"down_left_thumb\":
-		%LeftThumbstick.action_down = value
-		return true
-	elif property == \"visibility_left_thumb\":
-		%LeftThumbstick.visibility_mode = value
-		return true
-	elif property == \"enabled_left_thumb\":
-		%LeftThumbstick.visible = value
-		return true
-	elif property == \"left_right_thumb\":
-		%RightThumbstick.action_left = value
-		return true
-	elif property == \"right_right_thumb\":
-		%RightThumbstick.action_right = value
-		return true
-	elif property == \"up_right_thumb\":
-		%RightThumbstick.action_up = value
-		return true
-	elif property == \"down_right_thumb\":
-		%RightThumbstick.action_down = value
-		return true
-	elif property == \"visibility_right_thumb\":
-		%RightThumbstick.visibility_mode = value
-		return true
-	elif property == \"enabled_right_thumb\":
-		%RightThumbstick.visible = value
-		return true
-	elif property == \"action_a\":
-		%ButtonA.action = value
-		return true
-	elif property == \"visible_a\":
-		%ButtonA.visible = value
-		return true
-	elif property == \"texture_normal_a\":
+	if property == \"texture_normal_a\":
 		%ButtonA.texture_normal = value
 		return true
 	elif property == \"texture_pressed_a\":
 		%ButtonA.texture_pressed = value
-		return true
-	elif property == \"action_b\":
-		%ButtonB.action = value
-		return true
-	elif property == \"visible_b\":
-		%ButtonB.visible = value
 		return true
 	elif property == \"texture_normal_b\":
 		%ButtonB.texture_normal = value
@@ -163,23 +75,11 @@ func _set(property, value):
 	elif property == \"texture_pressed_b\":
 		%ButtonB.texture_pressed = value
 		return true
-	elif property == \"action_x\":
-		%ButtonX.action = value
-		return true
-	elif property == \"visible_x\":
-		%ButtonX.visible = value
-		return true
 	elif property == \"texture_normal_x\":
 		%ButtonX.texture_normal = value
 		return true
 	elif property == \"texture_pressed_x\":
 		%ButtonX.texture_pressed = value
-		return true
-	elif property == \"action_y\":
-		%ControlY.action = value
-		return true
-	elif property == \"visible_y\":
-		%ControlY.visible = value
 		return true
 	elif property == \"texture_normal_y\":
 		%ControlY.texture_normal = value
@@ -191,37 +91,15 @@ func _set(property, value):
 
 func _get_property_list():
 	return [
-		{ \"name\": \"left_left_thumb\", \"type\": TYPE_STRING },
-		{ \"name\": \"right_left_thumb\", \"type\": TYPE_STRING },
-		{ \"name\": \"up_left_thumb\", \"type\": TYPE_STRING },
-		{ \"name\": \"down_left_thumb\", \"type\": TYPE_STRING },
-		{ \"name\": \"visibility_left_thumb\", \"type\": TYPE_INT, \"hint\": \"enum\", \"hint_string\": \"When Touched,Always,Hidden\" },
-		{ \"name\": \"enabled_left_thumb\", \"type\": TYPE_BOOL },
-		{ \"name\": \"left_right_thumb\", \"type\": TYPE_STRING },
-		{ \"name\": \"right_right_thumb\", \"type\": TYPE_STRING },
-		{ \"name\": \"up_right_thumb\", \"type\": TYPE_STRING },
-		{ \"name\": \"down_right_thumb\", \"type\": TYPE_STRING },
-		{ \"name\": \"visibility_right_thumb\", \"type\": TYPE_INT, \"hint\": \"enum\", \"hint_string\": \"When Touched,Always,Hidden\" },
-		{ \"name\": \"enabled_right_thumb\", \"type\": TYPE_BOOL },
-		{ \"name\": \"action_a\", \"type\": TYPE_STRING },
-		{ \"name\": \"visible_a\", \"type\": TYPE_BOOL },
 		{ \"name\": \"texture_normal_a\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" },
 		{ \"name\": \"texture_pressed_a\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" },
-		{ \"name\": \"action_b\", \"type\": TYPE_STRING },
-		{ \"name\": \"visible_b\", \"type\": TYPE_BOOL },
 		{ \"name\": \"texture_normal_b\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" },
 		{ \"name\": \"texture_pressed_b\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" },
-		{ \"name\": \"action_x\", \"type\": TYPE_STRING },
-		{ \"name\": \"visible_x\", \"type\": TYPE_BOOL },
 		{ \"name\": \"texture_normal_x\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" },
 		{ \"name\": \"texture_pressed_x\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" },
-		{ \"name\": \"action_y\", \"type\": TYPE_STRING },
-		{ \"name\": \"visible_y\", \"type\": TYPE_BOOL },
 		{ \"name\": \"texture_normal_y\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" },
 		{ \"name\": \"texture_pressed_y\", \"type\": TYPE_OBJECT, \"hint\" : PROPERTY_HINT_RESOURCE_TYPE, \"hint_string\" : \"Texture\" }
 	]
-	
-
 
 var max_size = .15 # The maximum percentage of the screen height a button should cover
 
@@ -255,17 +133,17 @@ func _ready():
 		r_thumb.visible = false
 	r_thumb.visibility_mode = visibility_right_thumb
 		
-	# Calculate scale for buttons
+	# Scale the button size down if it is going to be too large
 	var buttonHeight = a.get_texture_normal().get_size().y
 	var ratio = (size.y * max_size) / buttonHeight
-	var scale = Vector2(ratio,ratio)
-	print(buttonHeight)
-	print(ratio)
-	print(size)
-	print(max_size)
-	print(scale)
 	
-	#a.scale = scale
+	# Don't scale the image up
+	if ratio > 1:
+		ratio = 1
+
+	var scale = Vector2(ratio,ratio)
+	
+	a.scale = scale
 	a.action = action_a
 	a.visible = visible_a 
 	a.texture_normal = texture_normal_a
@@ -299,6 +177,12 @@ right_left_thumb = "Right"
 action_a = "Jump"
 visible_a = true
 texture_normal_a = ExtResource("2_3hojg")
+visible_b = true
+texture_normal_b = ExtResource("2_3hojg")
+visible_x = true
+texture_normal_x = ExtResource("2_3hojg")
+visible_y = true
+texture_normal_y = ExtResource("2_3hojg")
 
 [node name="HBoxContainerThumbsticks" type="HBoxContainer" parent="."]
 anchors_preset = 15
