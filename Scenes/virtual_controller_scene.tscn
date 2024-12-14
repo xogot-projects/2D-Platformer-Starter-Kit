@@ -177,11 +177,8 @@ right_left_thumb = "Right"
 action_a = "Jump"
 visible_a = true
 texture_normal_a = ExtResource("2_3hojg")
-visible_b = true
 texture_normal_b = ExtResource("2_3hojg")
-visible_x = true
 texture_normal_x = ExtResource("2_3hojg")
-visible_y = true
 texture_normal_y = ExtResource("2_3hojg")
 
 [node name="HBoxContainerThumbsticks" type="HBoxContainer" parent="."]
