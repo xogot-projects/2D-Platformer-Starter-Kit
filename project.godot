@@ -29,6 +29,7 @@ VirtualControllerScene="res://Scenes/virtual_controller_scene.tscn"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/stretch/scale_mode="fractional"
 
 [dotnet]
 
