@@ -15,9 +15,9 @@ The code is documented for better understanding and each script and function is 
 The code is also beginner friendly, who wants to learn by diving directly into the coding game!
 
 ## Screenshots
-![2D Platformer Starter Kit Splash](https://github.com/AdilDevStuff/2D-Platformer-Starter-Kit/assets/94475453/0714f861-5db9-4c49-a5a7-c00708c0f9b5)
-![2D Starter Platformer SS 1](https://github.com/AdilDevStuff/2D-Platformer-Starter-Kit/assets/94475453/566dafe8-273d-4b60-97f6-4b29930c9eca)
-![2D Starter Platformer SS 2](https://github.com/AdilDevStuff/2D-Platformer-Starter-Kit/assets/94475453/aab09d8c-b7d7-459e-9313-9ec62bd585b8)
+<img width="1366" height="809" alt="Platformer_Screenshot2" src="https://github.com/user-attachments/assets/b2bfc358-8650-4fbc-98ae-095a0e30bec9" />
+<img width="1366" height="809" alt="Platformer_Screenshot" src="https://github.com/user-attachments/assets/141d97d5-019e-4574-81f9-9c15fb190b9b" />
+
 
 ## Credits
 
