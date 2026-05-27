@@ -1,12 +1,12 @@
-[gd_scene load_steps=14 format=4 uid="uid://cjanwm3sy2x37"]
+[gd_scene format=4 uid="uid://cjanwm3sy2x37"]
 
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_oqkjg"]
 [ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="2_0ac5u"]
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="2_pay8t"]
 [ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="3_rrh80"]
-[ext_resource type="Script" uid="uid://df7hdjn5r81c1" path="res://Scripts/GameManager.gd" id="4_vgfkr"]
+[ext_resource type="Script" uid="uid://bexoiwthdiop3" path="res://Scripts/GameManager.gd" id="4_vgfkr"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_wqbaa"]
-[ext_resource type="Script" uid="uid://cbaymvxf44k7s" path="res://Scripts/GameUI.gd" id="6_66mfc"]
+[ext_resource type="Script" uid="uid://cmhpnjekaqxjt" path="res://Scripts/GameUI.gd" id="6_66mfc"]
 [ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="7_j7jun"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="8_gwcy2"]
 
@@ -120,18 +120,18 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 10
 sources/0 = SubResource("TileSetAtlasSource_rndpx")
 
-[node name="Level_01" type="Node2D"]
+[node name="Level_01" type="Node2D" unique_id=2054711884]
 
-[node name="LevelFinishDoor" parent="." instance=ExtResource("1_oqkjg")]
+[node name="LevelFinishDoor" parent="." unique_id=1482294316 instance=ExtResource("1_oqkjg")]
 z_index = 1
 position = Vector2(1304, 400)
 next_scene = ExtResource("2_0ac5u")
 
-[node name="Player" parent="." instance=ExtResource("2_pay8t")]
+[node name="Player" parent="." unique_id=1422921782 instance=ExtResource("2_pay8t")]
 z_index = 1
 position = Vector2(150, 318)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=681546598]
 position = Vector2(16, 36)
 limit_left = 0
 limit_bottom = 705
@@ -146,36 +146,36 @@ drag_bottom_margin = 0.4
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="Coins" type="Node2D" parent="."]
+[node name="Coins" type="Node2D" parent="." unique_id=695003112]
 
-[node name="Coin" parent="Coins" instance=ExtResource("3_rrh80")]
+[node name="Coin" parent="Coins" unique_id=290084277 instance=ExtResource("3_rrh80")]
 position = Vector2(576, 406)
 
-[node name="Coin2" parent="Coins" instance=ExtResource("3_rrh80")]
+[node name="Coin2" parent="Coins" unique_id=548739205 instance=ExtResource("3_rrh80")]
 position = Vector2(712, 353)
 
-[node name="Coin3" parent="Coins" instance=ExtResource("3_rrh80")]
+[node name="Coin3" parent="Coins" unique_id=2110882491 instance=ExtResource("3_rrh80")]
 position = Vector2(844, 408)
 
-[node name="Level" type="Node2D" parent="."]
+[node name="Level" type="Node2D" parent="." unique_id=620575708]
 
-[node name="Ground" type="TileMapLayer" parent="Level"]
+[node name="Ground" type="TileMapLayer" parent="Level" unique_id=598157856]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAAAAgAAAADAAAAAAAAAAkAAAADAAAAAAABAAkAAAADAAAAAAACAAkAAAADAAAAAAADAAkAAAADAAAAAAAEAAkAAAADAAAAAAAEAAoAAAADAAAAAAADAAoAAAADAAAAAAACAAoAAAADAAAAAAABAAoAAAADAAAAAAAAAAoAAAADAAAAAAABAAgAAAADAAAAAAACAAgAAAADAAAAAAADAAgAAAADAAAAAAAEAAgAAAADAAAAAAANAAcAAAAAAAAAAAANAAgAAAADAAAAAAANAAkAAAADAAAAAAANAAoAAAADAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAADAAAAAAAOAAkAAAADAAAAAAAOAAoAAAADAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAADAAAAAAAPAAkAAAADAAAAAAAPAAoAAAADAAAAAAAQAAcAAAAAAAAAAAAQAAgAAAADAAAAAAAQAAkAAAADAAAAAAAQAAoAAAADAAAAAAARAAcAAAAAAAAAAAARAAgAAAADAAAAAAARAAkAAAADAAAAAAARAAoAAAADAAAAAAASAAcAAAAAAAAAAAASAAgAAAADAAAAAAASAAkAAAADAAAAAAASAAoAAAADAAAAAAATAAcAAAAAAAAAAAATAAgAAAADAAAAAAATAAkAAAADAAAAAAATAAoAAAADAAAAAAAUAAcAAAAAAAAAAAAUAAgAAAADAAAAAAAUAAkAAAADAAAAAAAUAAoAAAADAAAAAAAVAAcAAAAAAAAAAAAVAAgAAAADAAAAAAAVAAkAAAADAAAAAAAVAAoAAAADAAAAAAAKAAoAAAADAAAAAAALAAoAAAADAAAAAAAMAAoAAAADAAAAAAAFAAoAAAADAAAAAAAGAAoAAAADAAAAAAAHAAoAAAADAAAAAAAIAAoAAAADAAAAAAAJAAoAAAADAAAAAAAFAAcAAAAAAAIAAAAIAAcAAAAAAAIAAAAJAAcAAAAAAAIAAAAMAAcAAAAAAAIAAAD//woAAAADAAAAAAD//wkAAAADAAAAAAD//wgAAAADAAAAAAD//wcAAAADAAAAAAD//wYAAAADAAAAAAD//wUAAAADAAAAAAD//wQAAAADAAAAAAD//wMAAAADAAAAAAD//wIAAAADAAAAAAD//wEAAAADAAAAAAD//wAAAAADAAAAAAA=")
 tile_set = SubResource("TileSet_ywwrl")
 
-[node name="Traps" type="TileMapLayer" parent="Level" groups=["Traps"]]
+[node name="Traps" type="TileMapLayer" parent="Level" unique_id=1709433789 groups=["Traps"]]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAMAAkAAAAAAAUAAAALAAkAAAAAAAUAAAAKAAkAAAAAAAUAAAAJAAkAAAAAAAUAAAAIAAkAAAAAAAUAAAAHAAkAAAAAAAUAAAAGAAkAAAAAAAUAAAAFAAkAAAAAAAUAAAA=")
 tile_set = SubResource("TileSet_2fcbi")
 
-[node name="SpawnPoint" type="Marker2D" parent="Level"]
+[node name="SpawnPoint" type="Marker2D" parent="Level" unique_id=458461045]
 unique_name_in_owner = true
 position = Vector2(174, 383)
 
-[node name="TutorialText" type="Node2D" parent="."]
+[node name="TutorialText" type="Node2D" parent="." unique_id=1655232480]
 
-[node name="Movement" type="Label" parent="TutorialText"]
+[node name="Movement" type="Label" parent="TutorialText" unique_id=228722708]
 offset_left = 264.0
 offset_top = 336.0
 offset_right = 542.0
@@ -188,7 +188,7 @@ theme_override_font_sizes/font_size = 32
 text = "A & D To Move
 Spacebar To Jump"
 
-[node name="SetNextScene" type="Label" parent="TutorialText"]
+[node name="SetNextScene" type="Label" parent="TutorialText" unique_id=1194465247]
 offset_left = 808.0
 offset_top = 256.0
 offset_right = 1239.0
@@ -202,12 +202,12 @@ text = "Level Finish
 Set the next scene
 from \"LevelFinishDoor\" Area"
 
-[node name="GameManager" type="Node2D" parent="."]
+[node name="GameManager" type="Node2D" parent="." unique_id=1477815159]
 script = ExtResource("4_vgfkr")
 
-[node name="UserInterface" type="CanvasLayer" parent="."]
+[node name="UserInterface" type="CanvasLayer" parent="." unique_id=243400562]
 
-[node name="GameUI" type="Control" parent="UserInterface"]
+[node name="GameUI" type="Control" parent="UserInterface" unique_id=421471992]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -216,13 +216,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_66mfc")
 
-[node name="Score" type="Control" parent="UserInterface/GameUI"]
+[node name="Score" type="Control" parent="UserInterface/GameUI" unique_id=315999531]
 unique_name_in_owner = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ScoreTexture" type="TextureRect" parent="UserInterface/GameUI/Score"]
+[node name="ScoreTexture" type="TextureRect" parent="UserInterface/GameUI/Score" unique_id=407387464]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 16.0
@@ -232,7 +232,7 @@ offset_bottom = 116.0
 texture = ExtResource("7_j7jun")
 stretch_mode = 4
 
-[node name="ScoreLabel" type="Label" parent="UserInterface/GameUI/Score"]
+[node name="ScoreLabel" type="Label" parent="UserInterface/GameUI/Score" unique_id=905799569]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 104.0
